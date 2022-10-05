@@ -18,6 +18,7 @@ const TabNavs = () => {
                 },
                 tabBarActiveTintColor: '#2c3e50',
             }}
+            initialRouteName="Movies"
         >
             <Tab.Screen name="Movies" component={MoviesScreen} />
             <Tab.Screen name="Search Results" component={SearchScreen} />

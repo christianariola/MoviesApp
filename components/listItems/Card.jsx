@@ -1,10 +1,8 @@
 import {
-    View,
     Text,
     Box,
     HStack,
     VStack,
-    Center,
     Image,
     Button,
 } from "native-base";

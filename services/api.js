@@ -6,7 +6,19 @@ export const getMovies = async (type) => {
         const response = await axios.get(
             `${BASE_URL}/movie/${type}?api_key=${API_KEY}`
         );
-        
+
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getShowDetails = async (itemId, type) => {
+    try {
+        const response = await axios.get(
+            `${BASE_URL}/${type}/${itemId}?api_key=${API_KEY}`
+        );
+
         return response.data;
     } catch (error) {
         throw error;
