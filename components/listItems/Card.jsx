@@ -17,7 +17,7 @@ const Card = ({ navigation, item, type }) => {
                 style={{ maxWidth: 200 }}
             >
                 <Image
-                    alt={type == 'movie' ? item.original_title : item.original_name}
+                    alt={'Image'}
                     source={{
                         uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
                     }}
@@ -39,7 +39,7 @@ const Card = ({ navigation, item, type }) => {
                         onPress={() =>
                             navigation.navigate("ShowDetails", {
                                 itemId: item.id,
-                                type: type,
+                                type: type !== 'multi' ? type : item.media_type.toLowerCase(),
                             })
                         }
                         size="md"

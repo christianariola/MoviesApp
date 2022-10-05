@@ -8,7 +8,7 @@ import { movieTypes } from "../../utils/constants";
 const MoviesContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showType, setShowType] = useState("popular");
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState({});
 
     const fetchMovies = async () => {
         setIsLoading(true);

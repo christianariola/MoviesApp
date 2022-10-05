@@ -1,8 +1,7 @@
-import React from "react";
-import { Text } from "native-base";
+import SearchContainer from "../components/containers/SearchContainer";
 
-const SearchScreen = () => {
-    return <Text>Search</Text>;
+const SearchScreen = ({ navigation }) => {
+    return <SearchContainer navigation={navigation} />;
 };
 
 export default SearchScreen;

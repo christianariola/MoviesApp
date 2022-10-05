@@ -8,7 +8,7 @@ import { tvTypes } from "../../utils/constants";
 const TVShowsContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showType, setShowType] = useState("popular");
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState({});
 
     const fetchTVShows = async () => {
         setIsLoading(true);

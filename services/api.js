@@ -36,3 +36,20 @@ export const getTV = async (type) => {
         throw error;
     }
 };
+
+export const getSearchResults = async (query, type) => {
+
+    const url = `${BASE_URL}/search/${type}?query=${query}&api_key=${API_KEY}`
+
+    console.log(url)
+
+    try {
+        const response = await axios.get(
+            `${BASE_URL}/search/${type}?query=${query}&api_key=${API_KEY}`
+        );
+
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
