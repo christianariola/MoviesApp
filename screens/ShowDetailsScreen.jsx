@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../components/layout/Loader";
-import { View, Text, Box, HStack, VStack, Center, Image, Button } from 'native-base'
+import { Text, HStack, VStack, Center, Image } from 'native-base'
 import { getShowDetails } from "../services/api";
 
 const ShowDetailsScreen = ({ navigation, route }) => {
@@ -13,7 +13,7 @@ const ShowDetailsScreen = ({ navigation, route }) => {
         const response = await getShowDetails(itemId, type);
 
         setDetails(response);
-        navigation.setOptions({ title: response.original_title })
+        navigation.setOptions({ title: type == 'movie' ? response.original_title : response.original_name })
         
         setIsLoading(false);
     };
@@ -26,7 +26,7 @@ const ShowDetailsScreen = ({ navigation, route }) => {
         <Center mt={12} pb={2}>
             {isLoading ? <Loader /> : (
             <VStack alignItems='center' justifyContent="center" space={2} px={10}>
-                <Text fontSize='lg' mb={7} bold>{details.original_title}</Text>
+                <Text fontSize='lg' mb={7} bold>{type == 'movie' ? details.original_title : details.original_name}</Text>
                 <Image
                     alt={'Image here'}
                     source={{

@@ -8,6 +8,7 @@ import {
 } from "native-base";
 
 const Card = ({ navigation, item, type }) => {
+    {console.log(item)}
     return (
         <Box pb={3} px={4} mb={1}>
             <HStack
@@ -17,7 +18,7 @@ const Card = ({ navigation, item, type }) => {
                 style={{ maxWidth: 200 }}
             >
                 <Image
-                    alt={item.original_title}
+                    alt={type == 'movie' ? item.original_title : item.original_name}
                     source={{
                         uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
                     }}
@@ -25,7 +26,7 @@ const Card = ({ navigation, item, type }) => {
                 />
                 <VStack ml={1} space={1}>
                     <Text fontSize="sm" bold>
-                        {item.original_title}
+                        {type == 'movie' ? item.original_title : item.original_name}
                     </Text>
                     <Text fontSize="xs">
                         Popularity: {item.popularity ? item.popularity : "N/A"}

@@ -1,8 +1,7 @@
-import React from "react";
-import { Text } from "native-base";
+import TVShowsContainer from "../components/containers/TVShowsContainer";
 
-const TVShowsScreen = () => {
-    return <Text>TV Shows</Text>;
+const TVShowsScreen = ({ navigation }) => {
+    return <TVShowsContainer navigation={navigation} />;
 };
 
 export default TVShowsScreen;
