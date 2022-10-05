@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loader from "../components/layout/Loader";
 import { Box, Text, HStack, VStack, Center, Image } from "native-base";
 import { getShowDetails } from "../services/api";
+import { imagePlaceholder } from "../utils/constants";
 
 const ShowDetailsScreen = ({ navigation, route }) => {
     const { itemId, type } = route.params;
@@ -46,9 +47,12 @@ const ShowDetailsScreen = ({ navigation, route }) => {
                                     : details.original_name}
                             </Text>
                             <Image
-                                alt={"Image here"}
+                                alt={"Image"}
                                 source={{
-                                    uri: `https://image.tmdb.org/t/p/w500${details.poster_path}`,
+                                    uri:
+                                    details.poster_path !== undefined && details.poster_path
+                                            ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
+                                            : imagePlaceholder,
                                 }}
                                 size="2xl"
                                 mb={4}
