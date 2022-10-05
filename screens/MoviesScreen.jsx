@@ -1,10 +1,7 @@
-import React from 'react'
-import { Text } from 'native-base'
+import MoviesContainer from "../components/containers/MoviesContainer";
 
-const MoviesScreen = () => {
-  return (
-    <Text>Movies</Text>
-  )
-}
+const MoviesScreen = ({ navigation }) => {
+    return <MoviesContainer navigation={navigation} />;
+};
 
-export default MoviesScreen
+export default MoviesScreen;

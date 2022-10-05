@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { NativeBaseProvider, Box } from "native-base";
+import { NativeBaseProvider } from "native-base";
 import Header from "./components/layout/Header";
 import AppStack from "./navigation/AppStack"
 
