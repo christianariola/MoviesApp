@@ -3,11 +3,11 @@ import { Spinner, HStack, Heading, Center } from "native-base";
 
 const Loader = () => {
     return (
-        <Center>
+        <Center mt={10}>
             <HStack space={2} justifyContent="center">
-                <Spinner accessibilityLabel="Loading items" />
-                <Heading color="primary.500" fontSize="md">
-                    Loading
+                <Spinner accessibilityLabel="Loading results" color="black" />
+                <Heading color="black" fontSize="md">
+                    Loading results
                 </Heading>
             </HStack>
         </Center>

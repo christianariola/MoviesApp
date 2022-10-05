@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Loader from "../layout/Loader";
 import ShowsList from "../lists/ShowsList";
 import { getMovies } from "../../services/api";
+import ShowTypeForm from "../forms/ShowTypeForm";
+import { movieTypes } from "../../utils/constants";
 
 const MoviesContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -26,11 +28,18 @@ const MoviesContainer = ({ navigation }) => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <ShowsList
-                    navigation={navigation}
-                    items={items}
-                    type={"movie"}
-                />
+                <>
+                    <ShowTypeForm
+                        options={movieTypes}
+                        showType={showType}
+                        setShowType={setShowType}
+                    />
+                    <ShowsList
+                        navigation={navigation}
+                        items={items}
+                        type={"movie"}
+                    />
+                </>
             )}
         </>
     );

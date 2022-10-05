@@ -8,7 +8,6 @@ import {
 } from "native-base";
 
 const Card = ({ navigation, item, type }) => {
-    {console.log(item)}
     return (
         <Box pb={3} px={4} mb={1}>
             <HStack

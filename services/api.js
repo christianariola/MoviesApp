@@ -26,9 +26,6 @@ export const getShowDetails = async (itemId, type) => {
 };
 
 export const getTV = async (type) => {
-    const url = `${BASE_URL}/tv/${type}?api_key=${API_KEY}`
-    console.log("URL", url)
-
     try {
         const response = await axios.get(
             `${BASE_URL}/tv/${type}?api_key=${API_KEY}`
