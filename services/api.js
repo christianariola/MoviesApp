@@ -1,10 +1,10 @@
 import axios from "axios";
 import { API_KEY, BASE_URL } from "./config";
 
-export const getMovies = async (type) => {
+export const getMovies = async (type, page) => {
     try {
         const response = await axios.get(
-            `${BASE_URL}/movie/${type}?api_key=${API_KEY}`
+            `${BASE_URL}/movie/${type}?api_key=${API_KEY}&page=${page}`
         );
 
         return response.data;
@@ -25,10 +25,10 @@ export const getShowDetails = async (itemId, type) => {
     }
 };
 
-export const getTV = async (type) => {
+export const getTV = async (type, page) => {
     try {
         const response = await axios.get(
-            `${BASE_URL}/tv/${type}?api_key=${API_KEY}`
+            `${BASE_URL}/tv/${type}?api_key=${API_KEY}&page=${page}`
         );
 
         return response.data;
@@ -37,9 +37,9 @@ export const getTV = async (type) => {
     }
 };
 
-export const getSearchResults = async (query, type) => {
+export const getSearchResults = async (query, type, page) => {
 
-    const url = `${BASE_URL}/search/${type}?query=${query}&api_key=${API_KEY}`
+    const url = `${BASE_URL}/search/${type}?query=${query}&api_key=${API_KEY}&page=${page}`
 
     console.log(url)
 

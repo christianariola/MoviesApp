@@ -5,6 +5,7 @@ import Loader from "../layout/Loader";
 import ShowsList from "../lists/ShowsList";
 import SearchForm from "../forms/SearchForm";
 import { Text } from "native-base";
+import Pagination from "../../navigation/Pagination";
 
 const SearchContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -12,8 +13,10 @@ const SearchContainer = ({ navigation }) => {
     const [items, setItems] = useState([]);
     const [type, setType] = useState("multi");
     const [searchStarted, setSearchStarted] = useState(false);
-    const [page, setPage] = useState(1);
 
+    // For Pagination
+    const [page, setPage] = useState(1);
+    const [maxPages, setMaxPages] = useState(1);
     const fetchSearch = async () => {
         setIsLoading(true);
 
@@ -22,6 +25,8 @@ const SearchContainer = ({ navigation }) => {
         const response = await getSearchResults(query, type);
 
         setItems(response.results);
+
+        setMaxPages(response.total_pages);
 
         setIsLoading(false);
     };
@@ -56,6 +61,12 @@ const SearchContainer = ({ navigation }) => {
                             navigation={navigation}
                             items={items}
                             type={type}
+                        />
+
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            maxPages={maxPages}
                         />
                     </>
                 )
