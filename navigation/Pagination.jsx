@@ -8,31 +8,33 @@ import {
 } from "native-base";
 
 const Pagination = ({ page, setPage, maxPages }) => {
+    const previousHandler = () => {
+        if (page > 1) {
+            const newPage = page - 1;
+            setPage(newPage);
+        }
+    };
+
+    const forwardHandler = () => {
+        if (page < maxPages) {
+            const newPage = page + 1;
+            setPage(newPage);
+        }
+    };
+
     return (
-        <Center>
+        <Center alignItems="center" justifyContent="center">
             <HStack py={6}>
                 <Button
-                    onPress={() => {
-                        if (page > 1) {
-                            const newPage = page - 1;
-                            setPage(newPage);
-                        }
-                    }}
+                    onPress={previousHandler}
                     bg="primary.500"
                     leftIcon={<ArrowBackIcon />}
                     bordered
                 ></Button>
-                <Text px={5}>
-                    {page}
-                </Text>
+                <Text px={5}>{page}</Text>
                 <Button
                     bg="primary.500"
-                    onPress={() => {
-                        if (page < maxPages) {
-                            const newPage = page + 1;
-                            setPage(newPage);
-                        }
-                    }}
+                    onPress={forwardHandler}
                     leftIcon={<ArrowForwardIcon />}
                 ></Button>
             </HStack>
